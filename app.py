@@ -43,7 +43,7 @@ if uploaded_file is not None:
                 preds = np.array(preds)  # ensure numpy array
                 st.subheader("🔮 Predictions")
                 df_result = df.copy()
-                df_result["Prediction"] = np.where(preds == 0, "M", "R")
+                df_result["Prediction"] = preds
                 st.dataframe(df_result)
                 csv = df_result.to_csv(index=False).encode("utf-8")
                 st.download_button(
